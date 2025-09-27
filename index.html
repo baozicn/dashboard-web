@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>心流学社 Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand__logo">流</span>
+          <div>
+            <p class="brand__title">心流学社</p>
+            <p class="brand__subtitle">Flow Campus</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <p class="menu__title">导航 Navigation</p>
+          <a class="menu__item menu__item--active" href="#">总览 Dashboard</a>
+          <a class="menu__item" href="#">时间 Time</a>
+          <a class="menu__item" href="#">生活 Life</a>
+          <a class="menu__item" href="#">知识 Knowledge</a>
+          <a class="menu__item" href="#">资源 Library</a>
+          <a class="menu__item" href="#">习惯 Habits</a>
+          <a class="menu__item" href="#">圈子 Network</a>
+        </nav>
+        <div class="sidebar__footer">
+          <p class="sidebar__footer-title">本周重点</p>
+          <ul>
+            <li>数学建模省赛冲刺</li>
+            <li>英语六级词汇复习</li>
+            <li>创新创业BP定稿</li>
+          </ul>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="header">
+          <div>
+            <p class="header__meta">2025年9月15日 · 星期一 · 晴</p>
+            <h1 class="header__title">心流学社 Dashboard</h1>
+            <p class="header__subtitle">助你把时间、生活与成长串联成体系的专属空间</p>
+          </div>
+          <div class="header__avatar">
+            <img src="https://avatars.dicebear.com/api/initials/Flow.svg" alt="profile" />
+            <div>
+              <p class="header__name">王心流</p>
+              <p class="header__role">清华大四 · 自动化</p>
+            </div>
+          </div>
+        </header>
+
+        <section class="grid grid--top">
+          <article class="card highlight">
+            <h2>今日节奏</h2>
+            <p class="highlight__time">08:30 - 22:00</p>
+            <ul class="highlight__list">
+              <li>08:30-10:00 数模算法讨论</li>
+              <li>10:30-12:00 课程设计实验</li>
+              <li>14:00-16:00 篮球队训练</li>
+              <li>19:30-21:30 六级真题精练</li>
+            </ul>
+          </article>
+
+          <article class="card focus">
+            <h2>专注雷达</h2>
+            <div class="focus__chart">
+              <svg viewBox="0 0 200 200">
+                <polygon points="100,30 160,80 140,160 60,160 40,80" class="focus__polygon-bg" />
+                <polygon points="100,50 145,95 125,140 75,145 55,95" class="focus__polygon" />
+                <circle cx="100" cy="30" r="3" />
+                <circle cx="160" cy="80" r="3" />
+                <circle cx="140" cy="160" r="3" />
+                <circle cx="60" cy="160" r="3" />
+                <circle cx="40" cy="80" r="3" />
+              </svg>
+              <ul>
+                <li>学习 82</li>
+                <li>研究 76</li>
+                <li>生活 65</li>
+                <li>健康 72</li>
+                <li>社交 55</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card stats">
+            <h2>关键指标</h2>
+            <div class="stats__grid">
+              <div>
+                <p class="stats__label">本周深度专注</p>
+                <p class="stats__value">12.5h</p>
+              </div>
+              <div>
+                <p class="stats__label">课程任务进度</p>
+                <p class="stats__value">68%</p>
+              </div>
+              <div>
+                <p class="stats__label">知识库新条目</p>
+                <p class="stats__value">9</p>
+              </div>
+              <div>
+                <p class="stats__label">健康打卡</p>
+                <p class="stats__value">5/7</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid grid--double">
+          <article class="card timeline">
+            <div class="card__header">
+              <h2>时间地图</h2>
+              <button class="chip">周视图</button>
+            </div>
+            <div class="timeline__body">
+              <div class="timeline__row">
+                <span class="timeline__label">周一</span>
+                <div class="timeline__bar">
+                  <span class="timeline__block timeline__block--study" style="width: 45%">深度学习研读</span>
+                  <span class="timeline__block timeline__block--life" style="width: 20%">社团协调</span>
+                  <span class="timeline__block timeline__block--rest" style="width: 15%">午休</span>
+                  <span class="timeline__block timeline__block--grow" style="width: 20%">创业计划书</span>
+                </div>
+              </div>
+              <div class="timeline__row">
+                <span class="timeline__label">周二</span>
+                <div class="timeline__bar">
+                  <span class="timeline__block timeline__block--study" style="width: 40%">科研组会</span>
+                  <span class="timeline__block timeline__block--health" style="width: 15%">晨跑</span>
+                  <span class="timeline__block timeline__block--life" style="width: 25%">寝室值日</span>
+                  <span class="timeline__block timeline__block--rest" style="width: 20%">自习</span>
+                </div>
+              </div>
+              <div class="timeline__row">
+                <span class="timeline__label">周三</span>
+                <div class="timeline__bar">
+                  <span class="timeline__block timeline__block--health" style="width: 20%">瑜伽</span>
+                  <span class="timeline__block timeline__block--study" style="width: 35%">信号系统作业</span>
+                  <span class="timeline__block timeline__block--grow" style="width: 25%">导师面谈</span>
+                  <span class="timeline__block timeline__block--rest" style="width: 20%">社交</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card knowledge">
+            <div class="card__header">
+              <h2>知识星图</h2>
+              <button class="chip">AI 推荐</button>
+            </div>
+            <div class="knowledge__body">
+              <div class="knowledge__node">
+                <h3>半导体物理</h3>
+                <p>待整理：费米能级、PN结建模、CMOS 工艺节点。</p>
+                <span class="tag">课程关联</span>
+              </div>
+              <div class="knowledge__node">
+                <h3>数模竞赛题库</h3>
+                <p>已完成 3/5 个案例复盘，待完善 Python 模型库。</p>
+                <span class="tag tag--blue">竞赛</span>
+              </div>
+              <div class="knowledge__node">
+                <h3>心流访谈录</h3>
+                <p>新记录：北大光华学姐学习法；灵感：番茄钟+呼吸训练。</p>
+                <span class="tag tag--green">灵感</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid grid--double">
+          <article class="card habit">
+            <div class="card__header">
+              <h2>习惯追踪</h2>
+              <button class="chip chip--soft">九月</button>
+            </div>
+            <div class="habit__body">
+              <div class="habit__row">
+                <span class="habit__label">晨间阅读</span>
+                <div class="habit__dots" aria-label="晨间阅读完成情况">
+                  <span class="dot dot--active"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot dot--active"></span>
+                </div>
+              </div>
+              <div class="habit__row">
+                <span class="habit__label">健康饮食</span>
+                <div class="habit__dots" aria-label="健康饮食完成情况">
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                </div>
+              </div>
+              <div class="habit__row">
+                <span class="habit__label">运动打卡</span>
+                <div class="habit__dots" aria-label="运动打卡完成情况">
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot dot--active"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card inspiration">
+            <div class="card__header">
+              <h2>灵感补给站</h2>
+              <button class="chip chip--soft">今日推荐</button>
+            </div>
+            <div class="inspiration__body">
+              <div class="inspiration__item">
+                <h3>想法 · 校园学习空间地图</h3>
+                <p>收集校园里适合学习/讨论的场所，并添加实时拥挤度。</p>
+                <span class="tag tag--outline">行动点</span>
+              </div>
+              <div class="inspiration__item">
+                <h3>资源 · 机器学习可视化课程</h3>
+                <p>3小时精炼课程，涵盖Transformer结构图解与案例。</p>
+                <span class="tag tag--outline">资源推荐</span>
+              </div>
+              <div class="inspiration__item">
+                <h3>生活 · 城市夜跑路线</h3>
+                <p>以北海公园为核心的5km环线，附带呼吸节奏练习。</p>
+                <span class="tag tag--outline">生活灵感</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
