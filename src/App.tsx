@@ -38,8 +38,8 @@ const knowledgeTree = [
   },
 ];
 
-const navItems: { label: string; icon: LucideIcon }[] = [
-  { label: '概览', icon: Compass },
+const navItems: { label: string; icon: LucideIcon; isActive?: boolean }[] = [
+  { label: '概览', icon: Compass, isActive: true },
   { label: '课程', icon: BookOpen },
   { label: '任务', icon: ListChecks },
   { label: '资料库', icon: Library },
@@ -57,14 +57,20 @@ function App() {
         </div>
         <nav>
           <ul>
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <button type="button" className="nav-button">
-                  <item.icon aria-hidden="true" />
-                  <span>{item.label}</span>
-                </button>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <li key={item.label}>
+                  <button
+                    type="button"
+                    className={`nav-button${item.isActive ? ' is-active' : ''}`}
+                  >
+                    <Icon aria-hidden="true" />
+                    <span>{item.label}</span>
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div className="sidebar-footer">
@@ -112,7 +118,13 @@ function App() {
                   ))}
                 </div>
                 <div className="progress">
-                  <div className="progress-bar" style={{ width: `${item.progress}%` }} />
+                  <div className="progress-bar">
+                    <span
+                      className="progress-fill"
+                      style={{ width: `${item.progress}%` }}
+                      aria-hidden="true"
+                    />
+                  </div>
                   <span className="progress-label">完成度 {item.progress}%</span>
                 </div>
               </article>

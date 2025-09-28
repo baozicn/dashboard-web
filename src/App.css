@@ -7,6 +7,8 @@
   --ink-300: #6e808e;
   --ink-200: #93a0ab;
   --ink-050: #e3e7ea;
+  --ink-600: #2f4959;
+  --ink-900: #1c2a34;
   --capsule-50: #fff3e4;
   --capsule-100: #ffe7cc;
   --capsule-200: #ffd9a8;
@@ -29,6 +31,7 @@
   --radius-control: 16px;
   --shadow: 0 20px 44px rgba(28, 42, 52, 0.08);
   --shadow-hover: 0 24px 54px rgba(28, 42, 52, 0.1);
+  --glow-soft: 0 16px 40px rgba(28, 42, 52, 0.08);
 }
 
 .app-shell {
@@ -46,6 +49,21 @@
   flex-direction: column;
   gap: 32px;
   background: var(--paper);
+  position: relative;
+}
+
+.sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 24px 0 24px auto;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(50, 75, 92, 0),
+    rgba(50, 75, 92, 0.12),
+    rgba(50, 75, 92, 0)
+  );
+  pointer-events: none;
 }
 
 .brand {
@@ -124,6 +142,17 @@
   background: rgba(255, 217, 168, 0.7);
 }
 
+.nav-button.is-active {
+  border-color: rgba(255, 217, 168, 0.75);
+  background: rgba(255, 231, 204, 0.8);
+  color: var(--ink-600);
+  box-shadow: inset 0 0 0 1px rgba(255, 217, 168, 0.5);
+}
+
+.nav-button.is-active::before {
+  background: rgba(255, 195, 138, 0.85);
+}
+
 .sidebar-footer {
   margin-top: auto;
 }
@@ -142,7 +171,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  box-shadow: inset 0 0 0 1px rgba(255, 217, 168, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255, 217, 168, 0.35), var(--glow-soft);
 }
 
 .focus-button:hover,
@@ -157,7 +186,7 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
-  background: rgba(253, 252, 248, 0.92);
+  background: rgba(253, 252, 248, 0.95);
   border-radius: 32px 0 0 32px;
   box-shadow: var(--shadow);
 }
@@ -177,7 +206,7 @@
 .page-title {
   font-size: 32px;
   margin: 0;
-  color: var(--text-primary);
+  color: var(--ink-900);
 }
 
 .icon-button {
@@ -204,9 +233,8 @@
   background: var(--paper);
   border-radius: var(--radius-card);
   padding: 28px;
-  box-shadow: none;
-  border: 1px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(50, 75, 92, 0.12);
+  box-shadow: var(--glow-soft);
 }
 
 .section {
@@ -231,26 +259,27 @@
 .section-title h2 {
   font-size: 22px;
   margin: 0;
-  color: var(--text-primary);
+  color: var(--ink-600);
 }
 
 .section-action {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid var(--border-weak);
+  border: 1px solid rgba(50, 75, 92, 0.16);
   border-radius: 999px;
   padding: 10px 16px;
-  background: rgba(253, 252, 248, 0.9);
-  color: var(--ink-400);
+  background: rgba(255, 243, 228, 0.55);
+  color: var(--ink-500);
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .section-action:hover,
 .section-action:focus-visible {
-  background: var(--surface-muted);
-  color: var(--ink-500);
+  background: rgba(255, 217, 168, 0.65);
+  color: var(--ink-600);
+  border-color: rgba(50, 75, 92, 0.24);
 }
 
 .capsule {
@@ -259,8 +288,8 @@
   justify-content: center;
   padding: 6px 16px;
   border-radius: 999px;
-  background: rgba(255, 243, 228, 0.65);
-  color: var(--ink-400);
+  background: rgba(255, 231, 204, 0.75);
+  color: var(--ink-500);
   font-size: 14px;
   font-weight: 600;
 }
@@ -268,7 +297,8 @@
 .capsule.small {
   padding: 4px 12px;
   font-size: 12px;
-  background: rgba(255, 243, 228, 0.45);
+  background: rgba(255, 243, 228, 0.6);
+  color: var(--ink-500);
 }
 
 .grid {
@@ -289,16 +319,34 @@
 }
 
 .highlight {
-  background: rgba(253, 252, 248, 0.86);
-  border-color: var(--border);
+  background: rgba(255, 248, 233, 0.8);
+  border: 1px solid rgba(255, 217, 168, 0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65), var(--glow-soft);
+  position: relative;
+  overflow: hidden;
 }
 
 .highlight:hover,
 .highlight:focus-within {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-hover);
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  inset: 18px 18px auto 18px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 195, 138, 0.65);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.highlight > * {
+  position: relative;
+  z-index: 1;
 }
 
 .highlight header p {
@@ -315,10 +363,11 @@
 .tag {
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--border-weak);
-  color: var(--ink-300);
+  background: rgba(255, 231, 204, 0.7);
+  border: 1px solid rgba(255, 217, 168, 0.7);
+  color: var(--ink-600);
   font-size: 12px;
+  font-weight: 500;
 }
 
 .progress {
@@ -331,13 +380,24 @@
 .progress-bar {
   height: 8px;
   border-radius: 999px;
-  background: var(--ink-400);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  background: rgba(50, 75, 92, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--capsule-200);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  transition: width 0.3s ease;
 }
 
 .progress-label {
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--ink-400);
+  font-weight: 500;
 }
 
 .timeline {
@@ -354,34 +414,50 @@
   grid-template-columns: auto 1fr;
   gap: 16px;
   align-items: start;
+  position: relative;
+  padding-left: 12px;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 17px;
+  width: 2px;
+  height: 100%;
+  background: rgba(50, 75, 92, 0.12);
+}
+
+.timeline li:last-child::before {
+  display: none;
 }
 
 .timeline-icon {
   width: 36px;
   height: 36px;
   border-radius: 12px;
-  background: var(--paper);
-  border: 1px solid var(--border);
+  background: rgba(255, 231, 204, 0.8);
+  border: 1px solid rgba(255, 217, 168, 0.7);
   display: grid;
   place-items: center;
-  color: var(--ink-400);
-  box-shadow: 0 6px 14px rgba(28, 42, 52, 0.08);
+  color: var(--ink-600);
+  box-shadow: var(--glow-soft);
 }
 
 .timeline h3 {
   margin: 0 0 6px;
   font-size: 18px;
-  color: var(--text-primary);
+  color: var(--ink-600);
 }
 
 .timeline p {
   margin: 0 0 4px;
-  color: var(--text-secondary);
+  color: var(--ink-400);
 }
 
 .due {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--ink-300);
 }
 
 .knowledge-tree {
@@ -390,11 +466,11 @@
 }
 
 .branch {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(50, 75, 92, 0.12);
   border-radius: 20px;
   padding: 20px;
-  background: rgba(253, 252, 248, 0.92);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 252, 248, 0.95);
+  box-shadow: var(--glow-soft);
 }
 
 .branch-header {
@@ -407,6 +483,7 @@
 
 .branch-header h3 {
   margin: 0;
+  color: var(--ink-600);
 }
 
 .capsule-list {
@@ -417,11 +494,29 @@
 
 .branch ul {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 0;
   display: grid;
-  gap: 6px;
+  gap: 8px;
   font-size: 14px;
-  color: var(--ink-400);
+  color: var(--ink-500);
+  list-style: none;
+}
+
+.branch ul li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.branch ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 195, 138, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
 }
 
 button:focus-visible,
