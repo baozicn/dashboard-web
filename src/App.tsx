@@ -18,6 +18,7 @@ import SchedulePage from './pages/Schedule';
 import SettingsPage from './pages/Settings';
 import TasksPage from './pages/Tasks';
 import './App.css';
+import './styles/dashboard-pages.css';
 
 interface NavItem {
   label: string;
