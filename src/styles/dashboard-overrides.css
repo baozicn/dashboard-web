@@ -1,0 +1,18 @@
+.nav-button {
+  text-decoration: none;
+}
+
+.icon-button {
+  position: relative;
+}
+
+.icon-button-indicator {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--warning);
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 0 0 4px rgba(246, 167, 35, 0.2);
+}
